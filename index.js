@@ -22,19 +22,19 @@ function startCount() {
     play.classList.add("inactive");
     reset.classList.remove("inactive");
     workIndicator.classList.add("work-active");
-    minutes.innerText = 3;
-    seconds.innerText = 2;
+    minutes.innerText = 24;
+    seconds.innerText = 59;
 
     let setTimer = setInterval(() => {
         seconds.innerText--;
         if (seconds.innerText < 0) {
             minutes.innerText--;
-            seconds.innerText = 10;
+            seconds.innerText = 59;
         }
 
         if (minutes.innerText < 0 && workIndicator.classList.contains("work-active")) {
-            minutes.innerText = 2;
-            seconds.innerText = 9;
+            minutes.innerText = 4;
+            seconds.innerText = 59;
             workIndicator.classList.remove("work-active");
             breakIndicator.classList.add("break-active");
         }
