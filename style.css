@@ -8,8 +8,8 @@ font-family: 'PT Sans', sans-serif; */
     --color-backround: #212A3E;
     --color-green: #1B9C85;
     --color-yellow: #EA5455;
-    ---color-font: #F9F5EB;
-    ---color-design: #B70404;
+    --color-font: #F9F5EB;
+    --color-design: #B70404;
     font-size: 1rem;
 }
 
@@ -23,7 +23,7 @@ font-family: 'PT Sans', sans-serif; */
 body
 {
     background-color: var(--color-backround);
-    color: var(---color-font);
+    color: var(--color-font);
 }
 
 section
@@ -52,9 +52,9 @@ section
     background-color: var(--color-backround);
     padding: 0.625rem;
     border-radius: 7px;
-    box-shadow: 1px 5px 11px 0px var(---color-font);
-    -webkit-box-shadow: 1px 5px 11px 0px var(---color-font);
-    -moz-box-shadow: -1px 5px 11px 0px var(---color-font);
+    box-shadow: 1px 5px 11px 0px var(--color-font);
+    -webkit-box-shadow: 1px 5px 11px 0px var(--color-font);
+    -moz-box-shadow: -1px 5px 11px 0px var(--color-font);
     margin-bottom: 3rem;
 }
 
@@ -66,24 +66,24 @@ section
 #indicator p:nth-of-type(1):hover
 {
     color: var(--color-green);
-    box-shadow: 1px 5px 11px 0px var(---color-green);
+    box-shadow: 1px 5px 11px 0px var(--color-green);
     -webkit-box-shadow: 1px 5px 11px 0px var(--color-green);
-    -moz-box-shadow: -1px 5px 11px 0px var(---color-green);
+    -moz-box-shadow: -1px 5px 11px 0px var(--color-green);
 }
 
 #indicator p:last-child:hover
 {
-    color: var(---color-design);
-    box-shadow: 1px 5px 11px 0px var(---color-green);
-    -webkit-box-shadow: 1px 5px 11px 0px var(---color-design);
-    -moz-box-shadow: -1px 5px 11px 0px var(---color-design);
+    color: var(--color-design);
+    box-shadow: 1px 5px 11px 0px var(--color-design);
+    -webkit-box-shadow: 1px 5px 11px 0px var(--color-design);
+    -moz-box-shadow: -1px 5px 11px 0px var(--color-design);
 }
 
 
 #circle
 {
     background-color: var(--color-backround);
-    border: 2px solid var(---color-font);
+    border: 2px solid var(--color-font);
     width: 220px;
     height: 220px;
     border-radius: 50%;
@@ -102,7 +102,7 @@ section
 #circle::before
 {
     content: "";
-    border: 3px solid var(---color-design);
+    border: 3px solid var(--color-design);
     padding: 3px;
     width: 180px;
     height: 180px;
@@ -113,15 +113,16 @@ section
 #circle:hover
 {
     opacity: 0.7;
-    box-shadow: 1px 5px 11px 0px var(---color-font);
-    -webkit-box-shadow: 1px 5px 11px 0px var(---color-font);
-    -moz-box-shadow: -1px 5px 11px 0px var(---color-font)
+    box-shadow: 1px 5px 11px 0px var(--color-font);
+    -webkit-box-shadow: 1px 5px 11px 0px var(--color-font);
+    -moz-box-shadow: -1px 5px 11px 0px var(--color-font)
 }
 
 #selectors
 {
     display: flex;
     justify-content: center;
+    gap: 1rem;
     transition: ease-in-out;
     transition-duration: 1000ms;
 }
@@ -129,6 +130,21 @@ section
 #selectors:hover
 {
     transform: scale(1.3);
-    transition: cubic-bezier(0.19, 1, 0.22, 1);
+    transition: ease-in;
     transition-duration: 10000ms;
+}
+ 
+.inactive 
+{
+    display: none;
+    color: red;
+}  
+
+.work-active
+{
+    color: var(--color-green);
+}
+.break-active
+{
+    color: var(--color-design);
 }

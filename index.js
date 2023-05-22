@@ -1,40 +1,58 @@
-const play =  document.getElementById('play');
-let minutes =  document.getElementById('minutes');
-let seconds =  document.getElementById('seconds');
+const play = document.getElementById('play');
+const reset = document.getElementById('reset');
+let minutes = document.getElementById('minutes');
+let seconds = document.getElementById('seconds');
+let workIndicator = document.getElementById('work');
+let breakIndicator = document.getElementById('break');
 
-window.addEventListener("load", () =>
-{
-    minutes.innerText = "00";
-    seconds.innerText = "00";
-})
 
-function startCount() 
-{
-        minutes.innerText = 05;
-        seconds.innerText = 10;
+minutes.innerText = "00";
+seconds.innerText = "00";
 
-        let countDown = setInterval(() =>
-        {
-            seconds.innerText -= 1;
-            if (seconds.innerText <= 0) 
-            {
-                minutes.innerText -= 1;
-                seconds.innerText = 10;                // clearInterval(seconds.innerText);
-            }
-
-            if (minutes.innerText <= 0) {
-                minutes.innerText = "04";
-                seconds.innerText = 59;
-            }
-            if (minutes.innerText <= 0) {
-                minutes.innerText = "24";
-                seconds.innerText = 59
-            }
-          
-        },1000);
-
-        function clearCountDowon() {
-            clearInterval(countDown)
-        }
-        
+function p() {
+   
+minutes.innerText = "00";
+seconds.innerText = "00"; 
 }
+
+
+function startCount() {
+
+    workIndicator.classList.add("work-active");
+    play.classList.add("inactive");
+    reset.classList.remove("inactive");
+    workIndicator.classList.add("work-active");
+    minutes.innerText = 3;
+    seconds.innerText = 2;
+
+    let setTimer = setInterval(() => {
+        seconds.innerText--;
+        if (seconds.innerText < 0) {
+            minutes.innerText--;
+            seconds.innerText = 10;
+        }
+
+        if (minutes.innerText < 0 && workIndicator.classList.contains("work-active")) {
+            minutes.innerText = 2;
+            seconds.innerText = 9;
+            workIndicator.classList.remove("work-active");
+            breakIndicator.classList.add("break-active");
+        }
+
+        if (minutes.innerText < 0 && breakIndicator.classList.contains("break-active")) {
+            minutes.innerText = 24;
+            seconds.innerText = 59;
+            workIndicator.classList.add("work-active");
+            breakIndicator.classList.remove("break-active");
+        }
+       
+
+    }, 1000);
+}
+
+function endCount() {
+    location.reload()
+}
+
+play.addEventListener("click", startCount, {once: true});
+reset.addEventListener("click", endCount);
