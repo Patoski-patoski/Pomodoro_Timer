@@ -85,7 +85,7 @@ function endCount() {
 function saveCount() {
     clearInterval(setTiming);
     starterTimer();
-    pomodoroCounter.innerText = 3;
+    pomodoroCounter.innerText = 4;
     workTime.classList.remove("work-active");
     breakTime.classList.add("break-active");
 }
